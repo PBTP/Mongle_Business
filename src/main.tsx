@@ -5,12 +5,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RootRouter } from './router/RootRouter';
 import initMocks from '@/mocks/index.js';
 
-/**
- * 개발환경에서만 실행해줍니다.
- */
-if (import.meta.env.DEV) {
-  await initMocks();
-}
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')!).render(
