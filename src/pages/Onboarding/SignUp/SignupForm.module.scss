@@ -1,0 +1,41 @@
+@import '@/styles/theme.scss';
+
+.SignupFormWrapper {
+  margin-top: 32px;
+
+  > .SignupFormHeader {
+    display: flex;
+    gap: 8px;
+    color: $gray700;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+
+    > .SignupFormSubHeader {
+      display: flex;
+      align-items: center;
+
+      > .CheckIcon {
+        stroke: $primary;
+      }
+
+      > .SignupFormSubHeaderText {
+        color: $primary;
+        font-size: 11px;
+        line-height: 16px;
+      }
+    }
+  }
+
+  > .SignupFormInputWrapper {
+    padding: 12px 16px;
+    margin-top: 8px;
+
+    > .SignupFormInput {
+      font-size: 16px;
+      // &::placeholder {
+      //   font-s
+      // }
+    }
+  }
+}

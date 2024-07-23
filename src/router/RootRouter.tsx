@@ -15,6 +15,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Location from '@/pages/Location/Location/Location';
 import ReviewPage from '@/pages/Review/Review';
 import LoginPage from '@/pages/Onboarding/Login/Login';
+import SignUpPage from '@/pages/Onboarding/SignUp/SignUp';
 
 export const RootRouter = () => {
   const router = createBrowserRouter(
@@ -32,6 +33,7 @@ export const RootRouter = () => {
           <Route path="location" element={<Location />} />
           <Route path="review" element={<ReviewPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignUpPage />} />
         </Route>
       </Route>
     )

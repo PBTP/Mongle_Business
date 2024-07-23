@@ -1,0 +1,8 @@
+.LabelFormHeaderLabel {
+  display: flex;
+  align-items: center;
+
+  &.SpaceBetween {
+    justify-content: space-between;
+  }
+}
