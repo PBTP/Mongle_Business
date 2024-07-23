@@ -1,8 +1,19 @@
-.LabelFormHeaderLabel {
-  display: flex;
-  align-items: center;
+@import '@/styles/theme.scss';
 
-  &.SpaceBetween {
-    justify-content: space-between;
+.HeaderTitleWrapper {
+  display: grid;
+  align-items: center;
+  color: $gray700;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+
+  > .HeaderTitle {
+    display: flex;
+    align-items: center;
+  }
+
+  > .HeaderSubLabel {
+    justify-self: end;
   }
 }

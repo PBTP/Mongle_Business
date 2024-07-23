@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { Children, ReactNode } from 'react';
 import ContentField from '../ContentField/ContentField';
 import styles from './LabelForm.module.scss';
 
@@ -10,30 +10,49 @@ const LabelForm = ({ children }: LabelFormProps) => {
   return <div>{children}</div>;
 };
 
-interface HeaderLabelProp {
-  children: ReactNode;
-  spaceBetween?: boolean;
-  gap?: number;
+interface HeaderTitleProps {
+  children: ReactNode | string;
   className?: string;
 }
-const HeaderLabel = ({ children, spaceBetween, gap }: HeaderLabelProp) => {
+
+const getChildren = (children: ReactNode, type: unknown) => {
+  const childArray = Children.toArray(children);
+  const filterChildArray = childArray.filter((child) => child === type);
+  return filterChildArray.length > 0 ? filterChildArray : false;
+};
+
+const HeaderTitle = ({ children }: HeaderTitleProps) => {
+  const subLabel = getChildren(children, HeaderSubLabelType);
+  const label = getChildren(children, HeaderLabelType);
   return (
-    <div
-      style={{ gap }}
-      className={`${styles.LabelFormHeaderLabel} ${spaceBetween && styles.SpaceBetween}`}
-    >
-      {children}
+    <div className={styles.HeaderTitleWrapper}>
+      <div className={styles.HeaderTitle}>
+        {children}
+        {label && <div>{label}</div>}
+      </div>
+      {subLabel && <div className={styles.HeaderSubLabel}>{subLabel}</div>}
     </div>
   );
 };
 
-interface HeaderSubLabelProp {
-  children: ReactNode;
+interface HeaderSubLabelProps {
+  children?: ReactNode;
 }
 
-const HeaderSubLabel = ({ children }: HeaderSubLabelProp) => {
+const HeaderSubLabel = ({ children }: HeaderSubLabelProps) => {
   return <>{children}</>;
 };
+
+interface HeaderLabelProps {
+  children?: ReactNode;
+}
+
+const HeaderLabel = ({ children }: HeaderLabelProps) => {
+  return <>{children}</>;
+};
+
+const HeaderSubLabelType = (<HeaderSubLabel />).type;
+const HeaderLabelType = (<HeaderLabel />).type;
 
 interface LabelFormContentProps {
   backgroundColor: 'White' | 'Gray';
@@ -65,13 +84,14 @@ const LabelFormContent = ({
   );
 };
 
-interface LabelFormDescription {
+interface LabelFormDescriptionProps {
   children: string | ReactNode;
 }
-const LabelFormDescription = ({ children }: LabelFormDescription) => {
+const LabelFormDescription = ({ children }: LabelFormDescriptionProps) => {
   return <>{children}</>;
 };
 
+LabelForm.HeaderTitle = HeaderTitle;
 LabelForm.HeaderLabel = HeaderLabel;
 LabelForm.HeaderSubLabel = HeaderSubLabel;
 LabelForm.Content = LabelFormContent;
