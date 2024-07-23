@@ -1,5 +1,4 @@
 import React, { Children, ReactNode } from 'react';
-import ContentField from '../ContentField/ContentField';
 import styles from './LabelForm.module.scss';
 
 interface LabelFormProps {
@@ -27,7 +26,7 @@ const HeaderTitle = ({ children }: HeaderTitleProps) => {
   return (
     <div className={styles.HeaderTitleWrapper}>
       <div className={styles.HeaderTitle}>
-        {children}
+        <div>{children}</div>
         {label && <div>{label}</div>}
       </div>
       {subLabel && <div className={styles.HeaderSubLabel}>{subLabel}</div>}
@@ -54,47 +53,8 @@ const HeaderLabel = ({ children }: HeaderLabelProps) => {
 const HeaderSubLabelType = (<HeaderSubLabel />).type;
 const HeaderLabelType = (<HeaderLabel />).type;
 
-interface LabelFormContentProps {
-  backgroundColor: 'White' | 'Gray';
-  border: 'Border' | 'None';
-  value?: string;
-  setValue?: (args: unknown) => void;
-  placeholder?: string;
-  asChild?: ReactNode;
-}
-
-const LabelFormContent = ({
-  backgroundColor,
-  border,
-  value,
-  setValue,
-  placeholder,
-  asChild,
-}: LabelFormContentProps) => {
-  return asChild ? (
-    asChild
-  ) : (
-    <ContentField backgroundColor={backgroundColor} border={border}>
-      <input
-        value={value}
-        onChange={(e) => setValue?.(e.target.value)}
-        placeholder={placeholder}
-      />
-    </ContentField>
-  );
-};
-
-interface LabelFormDescriptionProps {
-  children: string | ReactNode;
-}
-const LabelFormDescription = ({ children }: LabelFormDescriptionProps) => {
-  return <>{children}</>;
-};
-
 LabelForm.HeaderTitle = HeaderTitle;
 LabelForm.HeaderLabel = HeaderLabel;
 LabelForm.HeaderSubLabel = HeaderSubLabel;
-LabelForm.Content = LabelFormContent;
-LabelForm.Description = LabelFormDescription;
 
 export default LabelForm;
