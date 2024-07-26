@@ -4,17 +4,36 @@
   width: 100%;
   display: grid;
   align-items: center;
-  color: $gray700;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
 
-  > .HeaderTitle {
+  > .HeaderTitleContainer {
     display: flex;
     align-items: center;
+
+    > .HeaderTitle {
+      color: $gray700;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+    }
   }
 
   > .HeaderSubLabel {
     justify-self: end;
+  }
+}
+
+.HeaderLabelRequire {
+  display: flex;
+  margin-left: 8px;
+  align-items: center;
+
+  > .HeaderLabelRequireText {
+    color: $primary;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  > .CheckIcon {
+    stroke: $primary;
   }
 }
