@@ -1,15 +1,15 @@
 @import '@/styles/theme.scss';
 
-.HeaderTitleWrapper {
+.TitleWrapper {
   width: 100%;
   display: grid;
   align-items: center;
 
-  > .HeaderTitleContainer {
+  > .TitleContainer {
     display: flex;
     align-items: center;
 
-    > .HeaderTitle {
+    > .Title {
       color: $gray700;
       font-size: 14px;
       font-weight: 500;
@@ -17,17 +17,17 @@
     }
   }
 
-  > .HeaderSubLabel {
+  > .SubLabel {
     justify-self: end;
   }
 }
 
-.HeaderLabelRequire {
+.LabelRequire {
   display: flex;
   margin-left: 8px;
   align-items: center;
 
-  > .HeaderLabelRequireText {
+  > .LabelRequireText {
     color: $primary;
     font-size: 11px;
     line-height: 16px;
@@ -36,4 +36,12 @@
   > .CheckIcon {
     stroke: $primary;
   }
+}
+
+.Description {
+  color: $gray400;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-top: 8px;
 }
