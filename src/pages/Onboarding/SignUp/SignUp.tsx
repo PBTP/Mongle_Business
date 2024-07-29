@@ -3,10 +3,12 @@ import ContentField from '@/components/common/ContentField/ContentField';
 import React, { useState } from 'react';
 import styles from './SignUp.module.scss';
 import SignupForm from './SignupForm';
+import useTimer from '@/components/common/Timer/Timer';
 
 const SignUp = () => {
   const [phone, setPhone] = useState('');
-  const [step, setStep] = useState<'step1' | 'step2'>('step2');
+  const [step, setStep] = useState<'step1' | 'step2'>('step1');
+  const { time, timeOut, resetTimer } = useTimer(5);
 
   //서버로 인증번호 요청 완료됐을때 true로 바꿔줘야함
   const onRequestCertificationNumber = true;
@@ -30,7 +32,7 @@ const SignUp = () => {
                   className={styles.Content}
                 />
                 {onRequestCertificationNumber && (
-                  <span className={styles.SubContent}>09:59</span>
+                  <span className={styles.SubContent}>{time}</span>
                 )}
               </ContentField>
             </>
@@ -49,7 +51,9 @@ const SignUp = () => {
               className={styles.Content}
             />
             {onRequestCertificationNumber && (
-              <span className={styles.SubContent}>재요청</span>
+              <span className={styles.SubContent} onClick={resetTimer}>
+                재요청
+              </span>
             )}
           </ContentField>
           <Button className={styles.CertificationButton} buttonType="Primary">
