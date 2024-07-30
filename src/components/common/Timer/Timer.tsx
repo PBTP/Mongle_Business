@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const useTimer = (initialMinutes: number) => {
-  const [timeLeft, setTimeLeft] = useState(initialMinutes * 60);
+const useTimer = (initialMinute: number) => {
+  const [timeLeft, setTimeLeft] = useState(initialMinute * 60);
   const timeOut = timeLeft <= 0;
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const useTimer = (initialMinutes: number) => {
   }, [timeLeft]);
 
   const resetTimer = () => {
-    setTimeLeft(initialMinutes * 60);
+    setTimeLeft(initialMinute * 60);
   };
 
   const formatTime = (totalSeconds: number): string => {

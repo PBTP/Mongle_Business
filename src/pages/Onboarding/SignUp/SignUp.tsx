@@ -5,10 +5,11 @@ import styles from './SignUp.module.scss';
 import SignupForm from './SignupForm';
 import useTimer from '@/components/common/Timer/Timer';
 
+const CERTIFICATION_MINUTE = 5;
 const SignUp = () => {
   const [phone, setPhone] = useState('');
   const [step, setStep] = useState<'step1' | 'step2'>('step1');
-  const { time, timeOut, resetTimer } = useTimer(5);
+  const { time, timeOut, resetTimer } = useTimer(CERTIFICATION_MINUTE);
 
   //서버로 인증번호 요청 완료됐을때 true로 바꿔줘야함
   const onRequestCertificationNumber = true;
