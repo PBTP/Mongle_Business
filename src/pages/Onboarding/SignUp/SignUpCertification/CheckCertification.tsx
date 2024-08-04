@@ -4,15 +4,18 @@ import styles from './SignUpCertification.module.scss';
 import ContentField from '@/components/common/ContentField/ContentField';
 import Button from '@/components/common/Button/Button';
 import apis from '@/hooks/api';
+import { useLocation } from 'react-router';
 
 const CERTIFICATION_MINUTE = 5;
 
 interface CheckCertificationProps {
-  onNextStep: () => void;
+  onNextStep: (phone: string) => void;
 }
 const CheckCertification = ({ onNextStep }: CheckCertificationProps) => {
+  const location = useLocation();
+
   const [certificationInfo, setCertificationInfo] = useState({
-    phone: '',
+    phone: location.state,
     certificationNumber: '',
   });
 
@@ -30,7 +33,7 @@ const CheckCertification = ({ onNextStep }: CheckCertificationProps) => {
 
   const { time, timeOut, resetTimer, startTimer } = useTimer(CERTIFICATION_MINUTE);
 
-  const buttonDisabled = Object.values(certificationInfo).every((item) => item) && !timeOut;
+  const buttonDisabled = !Object.values(certificationInfo).every((item) => item) && !timeOut;
 
   const handleCertification = () => {
     checkCertification(certificationInfo);
@@ -41,7 +44,7 @@ const CheckCertification = ({ onNextStep }: CheckCertificationProps) => {
   }, []);
 
   useEffect(() => {
-    if (checkCertificationSuccess) onNextStep();
+    if (checkCertificationSuccess) onNextStep(certificationInfo.phone);
   }, [checkCertificationSuccess]);
 
   return (
@@ -71,9 +74,11 @@ const CheckCertification = ({ onNextStep }: CheckCertificationProps) => {
         <input
           onChange={handleCertificationInfo}
           placeholder="010-0000-0000"
-          type="number"
-          className={styles.Content}
+          type="tell"
+          className={`${styles.Content} ${styles.Disabled}`}
+          value={certificationInfo.phone}
           name="phone"
+          readOnly
         />
         <span className={styles.SubContent} onClick={resetTimer}>
           재요청

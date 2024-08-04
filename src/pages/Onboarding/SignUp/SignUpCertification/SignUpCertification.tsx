@@ -5,8 +5,9 @@ import Button from '@/components/common/Button/Button';
 import apis from '@/hooks/api';
 import { displayPhoneNumber } from '@/utils/format';
 
+const VALIDATE_PHONE_LENGTH = 13;
 interface SignUpCertificationProps {
-  onNextStep: () => void;
+  onNextStep: (phone: string) => void;
 }
 const SignUpCertification = ({ onNextStep }: SignUpCertificationProps) => {
   const [phone, setPhone] = useState('');
@@ -14,19 +15,17 @@ const SignUpCertification = ({ onNextStep }: SignUpCertificationProps) => {
   const { mutate: requestCertification, isSuccess: requestCertificationSuccess } =
     useCertificationNumber();
 
-  const handleCertification = () => {
+  const onRequestCertification = () => {
     requestCertification({ phone });
   };
 
-  const buttonDisabled = !phone;
+  const buttonDisabled = phone.length !== VALIDATE_PHONE_LENGTH;
 
   useEffect(() => {
     if (requestCertificationSuccess) {
-      onNextStep();
+      onNextStep(phone);
     }
   }, [requestCertificationSuccess]);
-
-  //서버로 인증번호 요청 완료됐을때 true로 바꿔줘야함
 
   return (
     <div>
@@ -42,10 +41,11 @@ const SignUpCertification = ({ onNextStep }: SignUpCertificationProps) => {
           type="tell"
           value={displayPhoneNumber(phone)}
           className={styles.Content}
+          maxLength={13}
         />
       </ContentField>
       <Button
-        onClick={handleCertification}
+        onClick={onRequestCertification}
         className={styles.CertificationButton}
         buttonType={buttonDisabled ? 'Disabled' : 'Primary'}
       >
