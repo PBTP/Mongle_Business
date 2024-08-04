@@ -1,20 +1,24 @@
 import SignupForm from './SignupForm';
 import SignUpCertification from './SignUpCertification/SignUpCertification';
-import { useState } from 'react';
 import CheckCertification from './SignUpCertification/CheckCertification';
-import { useNavigate } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
+import useSearchParam from '@/hooks/useSearchParam';
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [step, setStep] = useState<'certification' | 'check' | 'signup'>('certification');
+  const [searchParam, setSearchParam] = useSearchParam('type', 'certification');
 
   return (
     <>
-      {step === 'certification' && <SignUpCertification onNextStep={() => setStep('check')} />}
-      {step === 'check' && <CheckCertification onNextStep={() => setStep('signup')} />}
-      {step === 'signup' && <SignupForm />}
+      {searchParam === 'certification' && (
+        <SignUpCertification
+          onNextStep={(phone: string) => setSearchParam('check', { state: phone })}
+        />
+      )}
+      {searchParam === 'check' && (
+        <CheckCertification
+          onNextStep={(phone: string) => setSearchParam('signup', { state: phone })}
+        />
+      )}
+      {searchParam === 'signup' && <SignupForm />}
     </>
   );
 };
