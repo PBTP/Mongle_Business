@@ -29,9 +29,7 @@ export default function checkSearchedWord(keyword: string) {
       regex = new RegExp(sqlArray[i], 'gi');
 
       if (regex.test(keyword)) {
-        alert(
-          '"' + sqlArray[i] + '"와(과) 같은 특정문자로 검색할 수 없습니다.'
-        );
+        alert('"' + sqlArray[i] + '"와(과) 같은 특정문자로 검색할 수 없습니다.');
         keyword = keyword.replace(regex, '');
         return false;
       }
@@ -39,3 +37,15 @@ export default function checkSearchedWord(keyword: string) {
   }
   return true;
 }
+
+export const displayPhoneNumber = (phoneNumber: string) => {
+  const cleaned = phoneNumber.replace(/\D/g, '');
+
+  if (cleaned.length <= 3) {
+    return cleaned;
+  } else if (cleaned.length <= 7) {
+    return `${cleaned.slice(0, 3)}-${cleaned.slice(3)}`;
+  } else {
+    return `${cleaned.slice(0, 3)}-${cleaned.slice(3, 7)}-${cleaned.slice(7)}`;
+  }
+};

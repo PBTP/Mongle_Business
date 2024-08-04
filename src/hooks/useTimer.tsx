@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 
 const useTimer = (initialMinute: number) => {
   const [timeLeft, setTimeLeft] = useState(initialMinute * 60);
+  const [isStart, setIsStart] = useState(false);
   const timeOut = timeLeft <= 0;
 
   useEffect(() => {
     let intervalId = null;
 
-    if (timeLeft > 0) {
+    if (timeLeft > 0 && isStart) {
       intervalId = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
@@ -20,10 +21,14 @@ const useTimer = (initialMinute: number) => {
         clearInterval(intervalId);
       }
     };
-  }, [timeLeft]);
+  }, [isStart, timeLeft]);
 
   const resetTimer = () => {
     setTimeLeft(initialMinute * 60);
+  };
+
+  const startTimer = () => {
+    setIsStart(true);
   };
 
   const formatTime = (totalSeconds: number): string => {
@@ -34,7 +39,7 @@ const useTimer = (initialMinute: number) => {
 
   const time = formatTime(timeLeft);
 
-  return { time, timeOut, resetTimer };
+  return { time, timeOut, resetTimer, startTimer };
 };
 
 export default useTimer;
