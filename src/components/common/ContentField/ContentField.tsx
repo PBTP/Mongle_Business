@@ -1,14 +1,19 @@
-import React, { forwardRef, ReactNode, ForwardedRef } from 'react';
+import React, {
+  forwardRef,
+  ReactNode,
+  ForwardedRef,
+  HTMLAttributes,
+} from 'react';
 
 import styles from './ContentField.module.scss';
 
-type ContentFieldProps = {
+interface ContentFieldProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   backgroundColor: 'Gray' | 'White';
   border?: 'Border' | 'None';
   className?: string;
   onClick?: () => void;
-};
+}
 
 const ContentField = forwardRef<HTMLDivElement, ContentFieldProps>(
   (
