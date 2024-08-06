@@ -1,10 +1,10 @@
-import useTimer from '@/components/common/Timer/Timer';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from './SignUpCertification.module.scss';
 import ContentField from '@/components/common/ContentField/ContentField';
 import Button from '@/components/common/Button/Button';
 import apis from '@/hooks/api';
 import { useLocation } from 'react-router';
+import useTimer from '@/hooks/useTimer';
 
 const CERTIFICATION_MINUTE = 5;
 
@@ -61,6 +61,7 @@ const CheckCertification = ({ onNextStep }: CheckCertificationProps) => {
           type="number"
           className={styles.Content}
           name="certificationNumber"
+          autoComplete="one-time-code"
         />
         <span className={styles.SubContent}>{time}</span>
       </ContentField>
