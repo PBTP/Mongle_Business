@@ -3183,6 +3183,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mg-business@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "mg-business@workspace:."
+  dependencies:
+    "@tanstack/react-query": "npm:^5.28.4"
+    "@types/node": "npm:^20.11.26"
+    "@types/react": "npm:^18.2.56"
+    "@types/react-dom": "npm:^18.2.19"
+    "@typescript-eslint/eslint-plugin": "npm:^7.0.2"
+    "@typescript-eslint/parser": "npm:^7.0.2"
+    "@vitejs/plugin-react-swc": "npm:^3.5.0"
+    axios: "npm:^1.6.8"
+    cross-env: "npm:^7.0.3"
+    eslint: "npm:^8.56.0"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-react-refresh: "npm:^0.4.5"
+    husky: "npm:^9.0.11"
+    lint-staged: "npm:>=10"
+    msw: "npm:0.35.0"
+    prettier: "npm:3.2.5"
+    react: "npm:^18.2.0"
+    react-calendar: "npm:^4.8.0"
+    react-dom: "npm:^18.2.0"
+    react-router: "npm:^6.22.3"
+    react-router-dom: "npm:^6.22.3"
+    sass: "npm:^1.71.1"
+    typescript: "npm:^5.2.2"
+    vite: "npm:^5.1.4"
+    vite-plugin-svgr: "npm:^4.2.0"
+    zustand: "npm:^4.5.2"
+  languageName: unknown
+  linkType: soft
+
 "micromatch@npm:4.0.5, micromatch@npm:^4.0.4":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
@@ -3673,39 +3706,6 @@ __metadata:
   checksum: 10c0/666f6973f332f27581371efaf303fd6c272cc43c2057b37aa99e3643158c7e4b2626549555d88626e99ea9e046f82f32e41bbde5f1508547e9a11b149b52387c
   languageName: node
   linkType: hard
-
-"pb-webview@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "pb-webview@workspace:."
-  dependencies:
-    "@tanstack/react-query": "npm:^5.28.4"
-    "@types/node": "npm:^20.11.26"
-    "@types/react": "npm:^18.2.56"
-    "@types/react-dom": "npm:^18.2.19"
-    "@typescript-eslint/eslint-plugin": "npm:^7.0.2"
-    "@typescript-eslint/parser": "npm:^7.0.2"
-    "@vitejs/plugin-react-swc": "npm:^3.5.0"
-    axios: "npm:^1.6.8"
-    cross-env: "npm:^7.0.3"
-    eslint: "npm:^8.56.0"
-    eslint-plugin-react-hooks: "npm:^4.6.0"
-    eslint-plugin-react-refresh: "npm:^0.4.5"
-    husky: "npm:^9.0.11"
-    lint-staged: "npm:>=10"
-    msw: "npm:0.35.0"
-    prettier: "npm:3.2.5"
-    react: "npm:^18.2.0"
-    react-calendar: "npm:^4.8.0"
-    react-dom: "npm:^18.2.0"
-    react-router: "npm:^6.22.3"
-    react-router-dom: "npm:^6.22.3"
-    sass: "npm:^1.71.1"
-    typescript: "npm:^5.2.2"
-    vite: "npm:^5.1.4"
-    vite-plugin-svgr: "npm:^4.2.0"
-    zustand: "npm:^4.5.2"
-  languageName: unknown
-  linkType: soft
 
 "picocolors@npm:^1.0.0":
   version: 1.0.0

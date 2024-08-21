@@ -1,6 +1,6 @@
 @import '@/styles/theme.scss';
 
-.BottomNavigationContainer {
+.BottomNavigationWrapper {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -22,11 +22,11 @@
     padding: 10px 20px;
     transition: color 0.3s all;
     font-weight: 500;
-    .icon {
+    .BottomIcon {
       font-size: 24px;
     }
 
-    .label {
+    .BottomLabel {
       font-size: 12px;
       margin-top: 5px;
     }

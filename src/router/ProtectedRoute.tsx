@@ -15,7 +15,7 @@ const ProtectedRoute = () => {
           {/* TODO:로그인 로직이 들어오면 변경한다.
           <Navigate to="/" replace={true} />
         */}
-          <Outlet /> <BottomNavigation />
+          <Outlet />
         </>
       )}
     </>
