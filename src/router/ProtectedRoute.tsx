@@ -11,12 +11,7 @@ const ProtectedRoute = () => {
       {token ? (
         <Outlet />
       ) : (
-        <>
-          {/* TODO:로그인 로직이 들어오면 변경한다.
-          <Navigate to="/" replace={true} />
-        */}
-          <Outlet />
-        </>
+        <Navigate to="/" replace={true} />
       )}
     </>
   );
