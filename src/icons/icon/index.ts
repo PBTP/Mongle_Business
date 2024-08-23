@@ -12,3 +12,4 @@ export { default as DeleteXIcon } from './DeleteXIcon';
 export { default as MessageIcon } from './MessageIcon'; 
 export { default as PhoneIcon } from './PhoneIcon'; 
 export { default as BellIcon } from './BellIcon'; 
+export { default as RefreshIcon } from './RefreshIcon'; 
