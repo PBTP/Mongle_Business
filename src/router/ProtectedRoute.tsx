@@ -11,7 +11,8 @@ const ProtectedRoute = () => {
       {token ? (
         <Outlet />
       ) : (
-        <Navigate to="/" replace={true} />
+        // <Navigate to="/" replace={true} />
+        <Outlet />
       )}
     </>
   );
