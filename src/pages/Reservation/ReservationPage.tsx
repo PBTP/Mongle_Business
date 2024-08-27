@@ -1,7 +1,7 @@
-import ReservationCard from '@/components/common/Card/ReservationCard'
-import styles from './ReservationPage.module.scss'
+import ReservationCard from '@/components/Reservation/ReservationCard';
+import styles from './ReservationPage.module.scss';
 import { BellIcon } from '@/icons/icon';
-import ReservationStatusCard from '@/components/common/Card/ReservationStatusCard';
+import ReservationStatusCard from '@/components/Reservation/ReservationStatusCard';
 
 const ReservationPage = () => {
   return (
