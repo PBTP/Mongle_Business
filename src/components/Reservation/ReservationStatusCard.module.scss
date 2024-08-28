@@ -3,35 +3,29 @@
 // 외부 margin 대신 padding
 .ReservationStatusCardWrapper {
   padding: 16px 0;
-}
+  > .ReservationStatusCardContent {
+    padding: 16px 27px;
+    border-radius: 8px;
+    border: 1px solid $gray100;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-.ReservationStatusCardContent {
-  padding: 16px 27px;
-  border-radius: 8px;
-  border: 1px solid $gray100;
-  background: $white;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.ReservationStatusCardLine {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ReservationStatusCardTitle {
-  color: $black;
-  font-family: "Pretendard Variable";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 22px; /* 137.5% */
-}
-
-.ReservationStatusCategory {
-
+    > .ReservationStatusCardLine {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    > .ReservationStatusCardTitle {
+      color: $black;
+      font-family: "Pretendard Variable";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 22px; /* 137.5% */
+    }
+  }
 }
 
 .ReservationStatusCount {
