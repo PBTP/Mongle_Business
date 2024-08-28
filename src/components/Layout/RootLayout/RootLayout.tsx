@@ -13,9 +13,11 @@ const RootLayout = () => {
   const token = useTokenStore((state) => state.accessToken);
 
   return (
-    <div className={styles.RootLayout}>
-      <Outlet context={{ token } satisfies ContextType} />
-      {token && <BottomNavigation />}
+    <div className={styles.RootLayoutWrapper}>
+      <div className={styles.RootLayout}>
+        <Outlet context={{ token } satisfies ContextType} />
+        {token && <BottomNavigation />}
+      </div>
     </div>
   );
 };
