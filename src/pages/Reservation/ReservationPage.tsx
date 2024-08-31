@@ -3,6 +3,8 @@ import styles from './ReservationPage.module.scss';
 import { BellIcon } from '@/icons/icon';
 import ReservationStatusCard from '@/components/Reservation/ReservationStatusCard';
 import ReservationBottomDrawer from '@/components/Reservation/ReservationBottomDrawer';
+import ReservationStatusToggle from '@/components/Reservation/ReservationToggle';
+
 const ReservationPage = () => {
   return (
     <>
@@ -12,7 +14,8 @@ const ReservationPage = () => {
       </div>
       <ReservationStatusCard />
       <ReservationCard />
-      <ReservationBottomDrawer/>
+      <ReservationBottomDrawer />
+      <ReservationStatusToggle />
     </>
   );
 }
