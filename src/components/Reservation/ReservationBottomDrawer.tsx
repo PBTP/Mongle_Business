@@ -10,6 +10,9 @@ import {
   DrawerFooter,
   DrawerClose,
 } from '@/components/ui/drawer';
+import styles from './ReservationBottomDrawer.module.scss';
+import { DeleteXIcon } from '@/icons/icon';
+import Button from '../common/Button/Button';
 
 const ReservationBottomDrawer = () => {
   return (
@@ -17,27 +20,44 @@ const ReservationBottomDrawer = () => {
       <DrawerTrigger asChild>
         <button className="btn">Open Drawer</button>
       </DrawerTrigger>
-      <DrawerOverlay className="CustomDrawerOverlay" /> {/* Overlay 색상 변경 */}
+      <DrawerOverlay className="CustomDrawerOverlay" />
       <DrawerContent className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white rounded-t-lg shadow-lg transform translate-y-full transition-transform duration-300 ease-out">
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+            <DrawerTitle className={styles.ReservationDrawerTitle}>
+              예약요청이 왔습니다.
+            </DrawerTitle>
+            <DrawerDescription className={styles.ReservationDrawerDescription}>
+              일정 확인 후 최대한 빨리 예약을 수락해주세요.
+            </DrawerDescription>
           </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              몰라
-              <div className="flex-1 text-center">
-                <div className="text-[0.70rem] uppercase text-muted-foreground">Calories/day</div>
+          <DrawerClose>
+            <DeleteXIcon width={16} height={16} className={styles.ReservationDrawerCloseIcon} />
+          </DrawerClose>
+          <div className={styles.ReservationDrawerCard}>
+            <div className={styles.ReservationCardTitle}>알래스칸 말라뮤트 | 36kg</div>
+            <div className={styles.ReservationCardInfoWrapper} style={{ marginTop: 12 }}>
+              <div className={styles.ReservationCardInfoLeftValue}>일정</div>
+              <div className={styles.ReservationCardInfoRightValue}>
+                <span>2024. 05. 15 오후 1시</span>
               </div>
-              몰라2
             </div>
-            <div className="mt-3 h-[120px]">차트</div>
+            <div className={styles.ReservationCardInfoWrapper}>
+              <div className={styles.ReservationCardInfoLeftValue}>위치</div>
+              <div className={styles.ReservationCardInfoRightValue}>
+                서울시 양천구 ㅇㅇ근린공원 주차장
+              </div>
+            </div>
+            <div className={styles.ReservationCardInfoWrapper}>
+              <div className={styles.ReservationCardInfoLeftValue}>정보</div>
+              <div className={styles.ReservationCardInfoRightValue}>대형견 | 장모종</div>
+            </div>
           </div>
           <DrawerFooter>
-            버튼
             <DrawerClose asChild>
-              <button className="btn">닫기</button>
+              <Button buttonType="Primary" className={styles.ReservationDrawerConfrimButton}>
+                예약 확정
+              </Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
