@@ -36,7 +36,7 @@ const ReservationBottomDrawer = () => {
           </DrawerClose>
           <div className={styles.ReservationDrawerCard}>
             <div className={styles.ReservationCardTitle}>알래스칸 말라뮤트 | 36kg</div>
-            <div className={styles.ReservationCardInfoWrapper} style={{ marginTop: 12 }}>
+            <div className={styles.ReservationCardInfoWrapper}>
               <div className={styles.ReservationCardInfoLeftValue}>일정</div>
               <div className={styles.ReservationCardInfoRightValue}>
                 <span>2024. 05. 15 오후 1시</span>
