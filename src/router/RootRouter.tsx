@@ -15,6 +15,7 @@ import ReviewPage from '@/pages/Review/Review';
 import LoginPage from '@/pages/Onboarding/Login/Login';
 import SignUpPage from '@/pages/Onboarding/SignUp/SignUp';
 import ReservationPage from '@/pages/Reservation/ReservationPage';
+import '../index.css'; // tailwind css의 정보를 가져오기위해 루트 컴포넌트에서 import한다.
 
 export const RootRouter = () => {
   const router = createBrowserRouter(
