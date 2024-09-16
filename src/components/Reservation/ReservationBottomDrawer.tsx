@@ -21,14 +21,13 @@ const ReservationBottomDrawer = () => {
         <button className="btn">예약창 오픈</button>
       </DrawerTrigger>
       <DrawerOverlay className="CustomDrawerOverlay" />
-      <DrawerContent 
-        className="fixed bottom-0 left-0 right-0 z-[1001] p-4 bg-white rounded-t-lg shadow-lg transform translate-y-full transition-transform duration-300 ease-out">
+      <DrawerContent className="fixed bottom-0 left-0 right-0 z-[1001] p-4 bg-white rounded-t-lg shadow-lg transform translate-y-full transition-transform duration-300 ease-out">
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
-            <DrawerTitle className={styles.ReservationDrawerTitle}>
+            <DrawerTitle className="pt-14 text-black text-center text-2xl font-bold leading-8">
               예약요청이 왔습니다.
             </DrawerTitle>
-            <DrawerDescription className={styles.ReservationDrawerDescription}>
+            <DrawerDescription className="pt-4 text-black text-center text-base font-medium leading-5">
               일정 확인 후 최대한 빨리 예약을 수락해주세요.
             </DrawerDescription>
           </DrawerHeader>
